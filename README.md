@@ -6,4 +6,5 @@
 
 # BTT-PI FAN Pin 
 
-***Please refer to BIGTREETECH Pi V1.2 Fan Pin connection for details***
+***BIGTREETECH Pi V1.2 Fan Pin connection
+Please refer to [here](https://github.com/So6Rallye/BTT-Pi/blob/master/BIGTREETECH%20Pi%20V1.2%20-%20Board%20Fan%20Pin%20Configuration) for details***
