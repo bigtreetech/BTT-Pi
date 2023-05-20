@@ -3,3 +3,7 @@
 
 # 40 Pin GPIO
 ***BTT-PI and CB1 40pin gpio are different, Please refer to [here](https://github.com/bigtreetech/CB1#40-pin-gpio) for details***
+
+# BTT-PI FAN Pin 
+
+***Please refer to BIGTREETECH Pi V1.2 Fan Pin connection for details***
