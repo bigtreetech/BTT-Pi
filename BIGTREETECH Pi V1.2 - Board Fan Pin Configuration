@@ -1,0 +1,52 @@
+BIGTREETECH Pi V1.2 Fan Pin connection
+
+On the user manual BIGTREETECH mentions pin PG19 for the 5V fan board but it's not right. 
+
+TJ MacLennan provides the good pin on the Facebook BIGTREETECH Official group. (Thanks again)  
+
+PG19 is definitely a GPIO pin. It may not be on the 40 pin GPIO header but any input / output pin on the BTT Pi and CB1 is GPIO.
+The formula to convert from PG19 to GPIO is:
+[(PG - PA)*32] + {Pin Number}
+Where PA = 1, PB =2….so PG = 7
+So [(7-1)*32] + 19 = 211
+
+finally, the fan pin is gpio211. So now we can add the good pin on the Klipper config.
+Be sure to mention "host" to make it work
+
+ex:  pin: host:gpio211
+
+Now let's configure this in Klipper!
+
+add on printer.cfg new mcu :
+
+[mcu host]
+serial: /tmp/klipper_host_mcu
+
+add a temperature fan for your BTT PI in printer.cfg : (this is an example, you can modify it easily)
+
+[temperature_fan raspberry_pi]
+pin: host:gpio211
+kick_start_time: 0.8
+#shutdown_speed: 0
+off_below: 0.1
+max_power: 1.0
+#fan_speed: 0.6
+sensor_type: temperature_host
+control: pid
+min_temp: 0
+max_temp: 85
+#max_delta: 5.0
+pid_kp: 1.0
+pid_ki: 0.5
+pid_kd: 2.0
+min_speed: 0.1
+max_speed: 0.6
+target_temp: 38
+
+If you have an issue with this, try this : 
+
+https://www.klipper3d.org/RPi_microcontroller.html?fbclid=IwAR07IYNk0_3k3UTf683JsdY7qgAgOjG8EIBKXrdl26PGByq5l3y30RgaajU#install-the-rc-script
+
+Hope it can help, 
+
+Happy printing!
